@@ -35,9 +35,9 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="http://35.245.253.27/FacultyPage.html"><h3>Faculty Page</h3></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="http://35.245.253.27/StudentSubmission.html"><h3>Browse Submissions</h3></a>
-	 
- </div>
+	    <a class="dropdown-item" href="http://35.245.253.27/StudentSubmission.html"><h3>Browse Submissions</h3></a>
+
+</div>
         </div>
       </div>
       <div class="col-sm-6"><h1>Faculty & Student<br> Research</h1></div>
@@ -68,10 +68,10 @@ if(isset($_POST['create'])){
         $password = $_POST['password'];
         $dateofbirth = $_POST['dateofbirth'];
         $expectedgraduation = $_POST['expectedgraduation'];
-	//Insert statement for creating an account
+        //Insert statement for creating an account
         $insertStatement = "INSERT INTO Users (email,password,fname,lname,accessLevel,dateOfBirth) VALUES (\"" . $email . "\",\"" . $password . "\",\"" . $firstname . "\",\"" . $lastname . "\",\"" . "0" . "\",\"" . $dateofbirth . "\")";
-	//MySQL query insert statement to studentfacultyDB database
-	mysqli_query($con,$insertStatement);
+        //MySQL query insert statement to studentfacultyDB database
+        mysqli_query($con,$insertStatement);
 
 }
 ?>
@@ -89,41 +89,37 @@ on width -->
 
 <div>
     <form action="CreateAccount.php" method="post">
-	<div class="container">
-	<br></br>
-	    <label for="firstname"><b>First Name:</b></label>
-		<input type="text" name="firstname" required>
-		<br></br>
-	    <label for="lastname"><b>Last Name:</b></label>
-	    <input type="text" name="lastname" required>
-		<br></br>
-	    <label for="email"><b>Email:</b></label>
-	    <input type="text" name="email" required>
-		<br></br>
-	    <label for="confirmationemail"><b>Confirmation Email:</b></label>
-	    <input type="text" name="confirmationemail" required>
-		<br></br>
-	    <label for="password"><b>Password:</b></label>
-	    <input type="password" name ="password" required>
-		<br></br>
-	    <label for="confirmationpassword"><b>Confirmation Password:</b></label>
-	    <input type="password" name="confirmationpassword" required>
-		<br></br>
-	    <label for="dateofbirth"><b>Date Of Birth:</b></label>
-	    <input type="Date" name="dateofbirth" required>
-		<br></br>
-	    <label for="expectedgraduation"><b>Expected Graduation:</b></label>
-	    <input type="text" name="expectedgraduation" required>
-		<br></br>
-	    <input type="submit" name="create" value="Submit">
-	</div>
-	</form>
+        <div class="container">
+        <br></br>
+            <label for="firstname"><b>First Name:</b></label>
+                <input type="text" name="firstname" required>
+                <br></br>
+            <label for="lastname"><b>Last Name:</b></label>
+            <input type="text" name="lastname" required>
+                <br></br>
+            <label for="email"><b>Email:</b></label>
+            <input type="text" name="email" required>
+                <br></br>
+            <label for="confirmationemail"><b>Confirmation Email:</b></label>
+            <input type="text" name="confirmationemail" required>
+                <br></br>
+            <label for="password"><b>Password:</b></label>
+            <input type="password" name ="password" required>
+                <br></br>
+            <label for="confirmationpassword"><b>Confirmation Password:</b></label>
+            <input type="password" name="confirmationpassword" required>
+                <br></br>
+            <label for="dateofbirth"><b>Date Of Birth:</b></label>
+            <input type="Date" name="dateofbirth" required>
+                <br></br>
+            <label for="expectedgraduation"><b>Expected Graduation:</b></label>
+            <input type="text" name="expectedgraduation" required>
+                <br></br>
+            <input type="submit" name="create" value="Submit">
+        </div>
+        </form>
     </div>
-
-  </div>
-</div>
-
-
-
 </body>
-</html>
+<html>
+
+
