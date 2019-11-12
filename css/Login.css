@@ -1,0 +1,53 @@
+html {
+  font-family:'Open Sans', arial; /*arial is the backup font*/
+}
+
+html, body {
+  height:100%%;
+  color:white;
+}
+
+body {
+  background: url('https://adminfinance.umw.edu/facilities/files/2018/09/umw-11132017-027.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+/* cover screen */
+
+.jumbotron {
+  background-color:#0D3559;
+  opacity:0.9;
+  margin-top:10%;
+  margin-left:30%;
+  margin-right:30%;
+  border-radius:5%;
+}
+
+/* form positioning */
+
+form {
+  padding-top:3%;
+  padding-bottom:3%;
+  border-radius: 5%;
+}
+
+form h1 {
+  margin-bottom:5%;
+}
+
+form p {
+  margin-top:5%;
+}
+
+/* button formatting */
+
+.btn-primary {
+  background-color: #872434;
+  padding-left: 1%;
+  padding-right: 1%;
+  opacity:1;
+  border-radius:10%;
+}
