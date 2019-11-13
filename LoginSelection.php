@@ -45,8 +45,8 @@ if(!$con){
     <!--Login with Email and Password-->
     <div align="center"><form method="post" action="LoginSelection.php">
       <h1>Login</h1>
-	<a class="btn btn-primary" href="http://35.245.253.27/Login.php">Continue as a student</a>
-	<a class="btn btn-primary" href= "http://35.245.253.27/Login.php">Continue as a faculty member </a>
+	<p><a class="btn btn-primary" href="http://35.245.253.27/Login.php">Continue as a student</a></p>
+	<p><a class="btn btn-primary" href="http://35.245.253.27/Login.php">Continue as a faculty member</a></p>
     </div>
 
 
