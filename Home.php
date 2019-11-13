@@ -29,9 +29,9 @@
             <img src='../inc/burger-menu.jpg' class='img-fluid'>
           </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="http://35.245.253.27/Home.html"><h3>Home</h3></a>
+            <a class="dropdown-item" href="http://35.245.253.27/Home.php"><h3>Home</h3></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="http://35.245.253.27/FacultyPage.html"><h3>Faculty Page</h3></a>
+            <a class="dropdown-item" href="http://35.245.253.27/FacultyPage.php"><h3>Faculty Page</h3></a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="http://35.245.253.27/StudentSubmission.php"><h3>Browse Submissions</h3></a>
           </div>
@@ -41,20 +41,26 @@
       <div class="col-sm-3"></div>
       <!-- Login Button -->
       <div class="col-sm-1">
-        <a class="btn btn-primary" href="http://35.245.253.27/Login.html"><h4>Login</h4></a>
+        <a class="btn btn-primary" href="http://35.245.253.27/LoginSelection.php"><h4>Login</h4></a>
       </div>
       <div class="col-sm-1"></div>
     </div>
 </div>
 
 <div class="jumbotron main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
-  <div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotron width -->
-    <div class="row">
-      <div class="col-sm-1"><h1>Home</h1></div>
-      <div class="col-sm-2"></div>
-      <div class="col-sm-9"></div>
-    </div>
-  </div>
+	<div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotron width -->
+    		<div class="row">
+      			<div class="col-sm-6"><h1>Student Research News</h1></div>
+      			<div class="col-sm-4"></div>
+      			<div class="col-sm-9"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4"><h5>Spotlight Research Project</h5></div>
+			<div class="col-sm-4"><h5>Apply for a Research Study</h5></div>
+			<div class="col-sm-4"><h5>Resources</h5</div>
+		</div>
+  	</div>
 </div>
 
 
