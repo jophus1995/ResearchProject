@@ -1,3 +1,24 @@
+<?php
+include 'config.php';
+
+//If statement to determine if connection to MySQL database was successful/unsucessful
+/*if(!$con){
+        echo "Connection to MySQL database failed";
+}else{
+        echo "Connection to MySQL database successful";
+}*/
+
+$firstname = $_POST['fname'];
+$lastname = $_POST['lname'];
+$email = $_POST['email'];
+$password = $_POST['pwd'];
+$dateofbirth = $_POST['DOB'];
+//Insert statement for creating an account
+$insertStatement = "INSERT INTO Users (email,password,fname,lname,accessLevel,dateOfBirth) VALUES (\"" . $email . "\",\"" . $password . "\",\"" . $firstname . "\",\"" . $lastname . "\",\"" . "0" . "\",\"" . $dateofbirth . "\")";
+//MySQL insert statement query
+mysqli_query($con,$insertStatement);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +37,8 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
   <link rel="stylesheet" type="text/css" href="../css/BootstrapTemplate.css">
-    <title> UMW Faculty & Student Research - Create New Account </title>
+  <!-- Website Page Title-->  
+  <title> Create New Account </title>
 </head>
 <body>
 
@@ -25,99 +47,91 @@
 <div class="container-fluid"> <!-- container-fluid is a full width container. it scales to the screen width -->
     <div class="row header"> <!-- each row can contain up to 12 columns. no matter what, all col must add up to 12 -->
       <div class="col-sm-1">
-        <!-- Dropdown Button -->
-        <div class="dropdown">
-          <button type="button" class="btn" data-toggle="dropdown">
-            <img src='../inc/burger-menu.jpg' class='img-fluid'>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="http://35.245.253.27//Home.php"><h3>Home</h3></a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="http://35.245.253.27/FacultyPage.php"><h3>Faculty Page</h3></a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="http://35.245.253.27/StudentSubmission.php"><h3>Browse Submissions</h3></a>
-	 
- </div>
-        </div>
+	<!-- Dropdown Button -->
+	<div class="dropdown">
+	  <button type="button" class="btn" data-toggle="dropdown">
+	    <img src='../inc/burger-menu.jpg' class='img-fluid'>
+	  </button>
+	  <!-- Dropdown Menu -->
+	  <div class="dropdown-menu">
+	    <!-- Dropdown Item - Home -->
+	    <a class="dropdown-item" href="http://35.245.253.27//Home.php"><h3>Home</h3></a>
+	    <!-- Dropdown Divider -->
+	    <div class="dropdown-divider"></div>
+	    <!-- Dropdown Item - Faculty Page -->
+	    <a class="dropdown-item" href="http://35.245.253.27/FacultyPage.php"><h3>Faculty Page</h3></a>
+	    <!-- Dropdown Divider -->
+	    <div class="dropdown-divider"></div>
+	    <!-- Dropdown Item - Student Research Projects -->
+	    <a class="dropdown-item" href="http://35.245.253.27/StudentSubmission.php"><h3>Browse Submissions</h3></a>
+	    <!-- Dropdown Divider -->
+	    <div class="dropdown-divider"></div>
+	    <!-- Dropdown Item - Account Information -->
+	    <a class="dropdown-item" href="http://35.245.253.27/AccountInformation.php"><h3>Account</h3></a>
+	  </div>
+	</div>
       </div>
+      <!-- Faculty & Student Research Header -->
       <div class="col-sm-6"><h1>Faculty & Student<br> Research</h1></div>
       <div class="col-sm-3"></div>
       <!-- Login Button -->
       <div class="col-sm-1">
-        <a class="btn btn-primary" href="http://35.245.253.27/LoginSelection.php"><h4>Login</h4></a>
+	<a class="btn btn-primary" href="http://35.245.253.27/LoginSelection.php"><h4>Login</h4></a>
       </div>
       <div class="col-sm-1"></div>
     </div>
 </div>
 
-<div>
-<?php
-include 'config.php';
-
-//If statement to determine if connection to MySQL database was successful/unsucessful
-if(!$con){
-        echo "Connection to MySQL database failed";
-}else{
-        echo "Connection to MySQL database successful";
-}
-
-if(isset($_POST['create'])){
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $dateofbirth = $_POST['dateofbirth'];
-        $expectedgraduation = $_POST['expectedgraduation'];
-	//Insert statement for creating an account
-        $insertStatement = "INSERT INTO Users (email,password,fname,lname,accessLevel,dateOfBirth) VALUES (\"" . $email . "\",\"" . $password . "\",\"" . $firstname . "\",\"" . $lastname . "\",\"" . "0" . "\",\"" . $dateofbirth . "\")";
-	//MySQL query insert statement to studentfacultyDB database
-	mysqli_query($con,$insertStatement);
-
-}
-?>
-</div>
-
-<div class="jumbotron main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
-  <div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotr
-on width -->
+<div class="jumbotro main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
+  <div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotron width -->
     <div class="row">
+      <!-- Create Account Header -->
       <div class="col-sm-5"><h1>Create Account</h1></div>
       <div class="col-sm-2"></div>
-      <div class="col-sm-9"></div>
+      <div class="col-sm-5"></div>
     </div>
-
-
-<div>
-    <form action="CreateAccount.php" method="post">
-	<div class="container">
-	<br></br>
-	    <label for="firstname"><b>First Name:</b></label>
-		<input type="text" name="firstname" required>
-		<br></br>
-	    <label for="lastname"><b>Last Name:</b></label>
-	    <input type="text" name="lastname" required>
-		<br></br>
-	    <label for="email"><b>Email:</b></label>
-	    <input type="text" name="email" required>
-		<br></br>
-	    <label for="confirmationemail"><b>Confirmation Email:</b></label>
-	    <input type="text" name="confirmationemail" required>
-		<br></br>
-	    <label for="password"><b>Password:</b></label>
-	    <input type="password" name ="password" required>
-		<br></br>
-	    <label for="confirmationpassword"><b>Confirmation Password:</b></label>
-	    <input type="password" name="confirmationpassword" required>
-		<br></br>
-	    <label for="dateofbirth"><b>Date Of Birth:</b></label>
-	    <input type="Date" name="dateofbirth" required>
-		<br></br>
-	    <label for="expectedgraduation"><b>Expected Graduation:</b></label>
-	    <input type="text" name="expectedgraduation" required>
-		<br></br>
-	    <input type="submit" name="create" value="Submit">
+    <div class="row">
+      <!-- Create Account Form -->
+      <form action="CreateAccount.php" method="POST">
+	<div class="form-group">
+          <!-- First Name Label -->
+	  <label for="fname">First Name:</label>
+	  <input type="text" placeholder="First Name" class="form-control" name="fname">
 	</div>
-	</form>
+	<div class="form-group">
+	  <!-- Last Name Label -->
+	  <label for="lname">Last Name</label>
+	  <input type="text" placeholder="Last Name" class="form-control" name="lname">
+	</div>
+	<div class="form-group">
+	  <!-- Email Label -->
+	  <label for="email">Email Address:</label>
+	  <input type="email" placeholder="Email Address" class="form-control" name="email">
+	</div>
+	<div class="form-group">
+          <!-- Email Confirmation Label -->
+	  <label for="emailCon">Confirm Email Address:</label>
+	  <input type="emailCon" placeholder="Confirm Email Address" class="form-control" name="emailCon">
+	</div>
+	<div class="form-group">
+	  <!-- Password Label -->
+	  <label for="pwd">Password:</label>
+	  <input type="password" placeholder="Password" class="form-control" name="pwd">
+	</div>
+	<div class="form-group">
+	  <!-- Password Confirmation Label -->
+	  <label for="passCon">Confirm Password:</label>
+	  <input type="password" placeholder="Confirm Password" class="form-control" name="passCon">
+	</div>
+	<div class="form-group">
+	  <!-- Date of Birth Label -->
+	  <label for="DOB">Date of Birth</label>
+	  <input type="date" placeholder="Date of Birth" class="form-control" name="DOB">
+	</div>
+	<!-- Submit Button -->
+	<button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
     </div>
 
   </div>
