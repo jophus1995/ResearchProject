@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="utf-8">
   <!-- Bootstrap 4; Sets initial zoom level and sets the width to the screen width of the viewing device -->
@@ -16,6 +14,8 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
   <link rel="stylesheet" type="text/css" href="../css/BootstrapTemplate.css">
+  <!-- Website Page Title -->
+  <title> Home </title>
 </head>
 
 <body>
@@ -27,21 +27,43 @@
         <div class="dropdown">
           <button type="button" class="btn" data-toggle="dropdown">
             <img src='../inc/burger-menu.jpg' class='img-fluid'>
-          </button>
-          <div class="dropdown-menu">
+	  </button>
+	  <!-- Dropdown Menu -->
+	  <div class="dropdown-menu">
+	    <!-- Dropdown Item - Home -->
             <a class="dropdown-item" href="http://35.245.253.27/Home.php"><h3>Home</h3></a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="http://35.245.253.27/FacultyPage.php"><h3>Faculty Page</h3></a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="http://35.245.253.27/StudentSubmission.php"><h3>Browse Submissions</h3></a>
+	    <!-- Dropdown Divider -->
+	    <div class="dropdown-divider"></div>
+            <!-- Dropdown Item - Faculty Page -->
+	    <a class="dropdown-item" href="http://35.245.253.27/FacultyPage.php"><h3>Faculty Page</h3></a>
+	    <!-- Dropdown Divider -->
+	    <div class="dropdown-divider"></div>
+	    <!-- Dropdown Item - Student Research Project -->
+	    <a class="dropdown-item" href="http://35.245.253.27/StudentSubmission.php"><h3>Browse Submissions</h3></a>
+	    <!-- Dropdown Divider -->
+	    <div class="dropdown-divider"></div>
+	    <!-- Dropdown Item - Account Information -->
+	    <a class="dropdown-item" href="http://35.245.253.27/AccountInformation.php"><h3>Account</h3></a>
           </div>
         </div>
       </div>
+      <!-- Faculty & Student Research Header -->
       <div class="col-sm-6"><h1>Faculty & Student<br> Research</h1></div>
       <div class="col-sm-3"></div>
       <!-- Login Button -->
       <div class="col-sm-1">
-        <a class="btn btn-primary" href="http://35.245.253.27/LoginSelection.php"><h4>Login</h4></a>
+<?php
+	//A new session is started
+	session_start();
+	//If there is an active session ID
+	if (isset($_SESSION['userID'])) {
+		//Display logout button
+		echo '<a class="btn btn-primary" href="http://35.245.253.27/Logout.php"><h4>Logout</h4></a>';
+	} else {
+		//Display login button
+		echo '<a class="btn btn-primary" href="http://35.245.253.27/LoginSelection.php"><h4>Login</h4></a>';
+	}
+?>
       </div>
       <div class="col-sm-1"></div>
     </div>
@@ -49,16 +71,23 @@
 
 <div class="jumbotron main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
 	<div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotron width -->
-    		<div class="row">
-      			<div class="col-sm-6"><h1>Student Research News</h1></div>
-      			<div class="col-sm-4"></div>
-      			<div class="col-sm-9"></div>
+		<div class="row">
+			<!-- Student Research News Header -->
+      			<div class="col-sm-8"><h1>Student Research News</h1></div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-4"><h5>Spotlight Research Project</h5></div>
-			<div class="col-sm-4"><h5>Apply for a Research Study</h5></div>
-			<div class="col-sm-4"><h5>Resources</h5</div>
+			<!-- Subheaders -->
+			<a align="left" class="col-sm-4"><h5>Spotlight Research Project</h5></a>
+			<a align="center" class="col-sm-4"><h5>Apply for a Research Study</h5></a>
+			<a align="right" class="col-sm-2"><h5>Resources</h5></a>
+		</div>
+
+		<div class="column">
+			<!-- Links to 'Resources' subheader -->
+			<a align="right" href="https://cas.umw.edu/computerscience/undergraduate-research-computer-science/"><p>UMW CS Undergraduate Research</p></a>
+			<a align="right" href="https://cas.umw.edu/summerscienceinstitute/"><p>UMW Summer Science Institute</p></a>
+			<a align="right" href="https://cas.umw.edu/students/undergraduate-research-grant-application-information/"><p>UMW Undergraduate Grants</p></a>
 		</div>
   	</div>
 </div>
