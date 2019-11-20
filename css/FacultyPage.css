@@ -1,3 +1,11 @@
+/**
+Important notes:
+
+*The template relies on Bootstrap to function and make design a lot easier. If you're not familiar with
+  Boostrap, here is a link to a good tutorial:
+    https://www.w3schools.com/bootstrap4/default.asp
+
+**/
 html {
   font-family:'Open Sans', arial; /*arial is the backup font*/
 }
@@ -15,73 +23,49 @@ body {
   -o-background-size: cover;
 }
 
-/* cover screen */
-
-.jumbotron {
-  background-color:#0D3559;
-  opacity:0.9;
-  margin-top:10%;
-  margin-left:30%;
-  margin-right:30%;
-  border-radius:5%;
-}
-
-/* form positioning */
-
-form {
-  padding-top:3%;
-  padding-bottom:3%;
-  border-radius: 5%;
-}
-
-form h1 {
-  margin-bottom:5%;
-}
-
-form p {
-  margin-top:5%;
-}
-
-
 /* header style */
+
 .header {
   background-color: #0D3559;
   color:white;
 }
 
-/* button formatting */
-
-.btn-primary {
-  background-color: #872434;
-  padding-left: 1%;
-  padding-right: 1%;
-  opacity:1;
-  border-radius:10%;
+.header h1 {
+  padding-top:1%;
+  paddingp-bottom:1%;
 }
 
 /* dropdown menu button */
+
 .header .btn {
   color:white;
   margin-right:.5%;
 }
+
 .header .dropdown-menu {
   margin-top:5%;
   background-color:#0D3559;
   opacity:0.9;
   color:white;
 }
+
 .header .dropdown-item {
   margin-top:1%;
   color:white;
 }
+
 /* alters the color when focusing or hovering over dropdown menu items */
+
 .header .dropdown-menu > a:focus, .dropdown-menu > a:hover {
   background-color:grey;
 }
+
 .header .dropdown-divider {
   color: grey;
 }
+
 /* Login Button */
+
 .header .btn-primary {
   background-color: #872434;
   padding-right:20%;
@@ -89,11 +73,12 @@ form p {
   margin-top:25%;
 }
 /* main container / jumbotron */
+
 .main {
   margin-top:5%;
   margin-left:17%;
-  height: 75%;
-  width: 65%;
+  height: 170%;
+  width: 70%;
   background-color:#0D3559;
   opacity:0.9;
 }
