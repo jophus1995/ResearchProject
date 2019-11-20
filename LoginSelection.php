@@ -1,3 +1,12 @@
+<?php
+include 'config.php';
+	//If statement to determine if connection to MySQL database was successful/unsucessful
+	/*if(!$con){
+        	echo "Connection to MySQL database failed";
+	}else{
+        	echo "Connection to MySQL database successful";
+	}*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,38 +25,23 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
   <link rel="stylesheet" type="text/css" href="../css/Login.css">
-  <title> UMW Faculty & Student Research Login Selection</title>
+  <!-- Website Page Title -->
+  <title> Login Selection</title>
 </head>
 
 <body>
-<div>
-<?php
-include 'config.php';
-$mysql_host = '35.238.146.54';
-$mysql_user = 'umwresearch';
-$mysql_pass = 'csumw2019';
-$mysql_db = 'studentfacultyDB';
-//SQL Connection
-$con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
-//If statement to determine if connection to MySQL database was successful/unsucessful
-if(!$con){
-	echo "Connection to MySQL database failed";
-}else{
-	echo "Connection to MySQL database successful";
-}
-
-?>
-</div>
-
-
 
 <div class="jumbotron main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
-    <!--Login with Email and Password-->
+    <!--Login selection as student or faculty-->
     <div align="center"><form method="post" action="LoginSelection.php">
+      <!-- Login Header -->
       <h1>Login</h1>
+        <!-- Button to redirect a user to log in as a student -->
 	<p><a class="btn btn-primary" href="http://35.245.253.27/Login.php">Continue as a Student</a></p>
-	<p><a class="btn btn-primary" href="http://35.245.253.27/Login.php">Continue as a Faculty</a></p>
-	<p><a href="http://35.245.253.27/Home.php">Return to Home Page</a></p>    
+	<!-- Button to redirect a user to log in as a faculty member -->
+	<p><a class="btn btn-primary" href="http://35.245.253.27/FacultyLogin.php">Continue as a Faculty</a></p>
+	<!-- Link to redirect user back to Home page -->
+	<p><a href="http://35.245.253.27/Home.php">Return to Home Page</a></p>
     </div>
 
 

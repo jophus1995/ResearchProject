@@ -16,57 +16,35 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
   <link rel="stylesheet" type="text/css" href="../css/Login.css">
-  <title> UMW Faculty & Student Research Login </title>
+  <!-- Website Page Title -->
+  <title> Student Login </title>
 </head>
 
 <body>
-<div>
-<?php
-include 'config.php';
-$mysql_host = '35.238.146.54';
-$mysql_user = 'umwresearch';
-$mysql_pass = 'csumw2019';
-$mysql_db = 'studentfacultyDB';
-//SQL Connection
-$con = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
-//If statement to determine if connection to MySQL database was successful/unsucessful
-if(!$con){
-        echo "Connection to MySQL database failed";
-}else{
-        echo "Connection to MySQL database successful";
-}
-
-if(isset($_POST['login'])){
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        //Insert statement for creating an account
-        $selectStatement = "SELECT email, password FROM Users WHERE email = '" . $con->real_escape_string($email) . "'"; 
-        //MySQL query insert statement to studentfacultyDB database
-        mysqli_query($con,$selectStatement);
-}
-?>
-</div>
-
-
 
 <div class="jumbotron main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
     <!--Login with Email and Password-->
-    <div align="center"><form method="post" action="Home.html">
-      <h1>Login</h1>
-        <div>
-            <!--Email Label-->
-            <input type="text" placeholder="Email"name="email" required>
-            <br></br>
-        </div>
-        <div>
-            <!--Password Label-->
-            <input type="password" placeholder="Password" name="password" required>
-            <br></br>
-        </div>
-        <input class="button btn-primary" name = "login" type="submit" value="Login">
-        <p> Forgot your <a href="#">password? </p></a>
-        <p> Not yet a member? <a href = "http://35.245.253.27/CreateAccount.php"> Sign Up </a> </p>
-        </form>
+    <div align="center"><form action="Authentication.php" method="post">
+      <!-- Student Login Header -->
+      <h1>Student Login</h1>
+	<div>
+	    <!--Email Label-->
+	    <input type="text" name="email" placeholder="Email" id="email" required>
+	    <br></br>
+	</div>
+	<div>
+	    <!--Password Label-->
+	    <input type="password" name="password" placeholder="Password" id="password" required>
+	    <br></br>
+	</div>
+	<!-- Login Button -->
+	<input class="button btn-primary" name = "login" type="submit" value="Login">
+	<p> Forgot your <a href="#">password? </p></a>
+	<!-- Link to creating an account -->
+	<p> Not yet a member? <a href = "http://35.245.253.27/CreateAccount.php"> Sign Up </a> </p>
+	<!-- Link to return back to home page -->
+	<p><a href="http://35.245.253.27/Home.php">Return to Home Page</a></p>
+	</form>
     </div>
 
 
