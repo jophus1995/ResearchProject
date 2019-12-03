@@ -1,11 +1,11 @@
 <?php
 include 'config.php';
 	//If statement to determine if connection to MySQL database was successful/unsucessful
-	if(!$con){
+	/*if(!$con){
         	echo "Connection to MySQL database failed";
 	}else{
         	echo "Connection to MySQL database successful";
-	}
+	}*/
 ?>
 
 <?php
@@ -45,7 +45,7 @@ include 'config.php';
   <!-- Imports Google Font Open-Sans -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
-  <link rel="stylesheet" type="text/css" href="../css/Login.css">
+  <link rel="stylesheet" type="text/css" href="../css/AccountInformation.css">
   <!-- Website Page Title -->
   <title> Account Information </title>
 </head>
@@ -53,6 +53,18 @@ include 'config.php';
 <body>
 <!-- Container for header -->
 <div class="container-fluid"> <!-- container-fluid is a full width container. it scales to the screen width -->
+    <div class="row">
+    <div class="topnav">
+        <div class="span-12">
+                        <a href="#home"><img src="inc/home.png" width="15" height = "15"><br>Home</a>
+                        <a href="#t3"><img src="inc/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
+                        <a href="#intern"><img src="inc/briefcase.png" width="15" height = "15"><br>Internships</a>
+                        <a href="#ctf"><img src="inc/flag.png" width="15" height = "15"><br>Capture the Flag</a>
+                        <a href="#alumni"><img src="inc/persons.png" width="15" height = "15"><br>Alumni</a>
+                        <a href="http://35.245.253.27/Home.php"><img src="inc/books.png" width="15" height = "15"><br>Research</a>
+    </div>
+    </div>
+    </div>
     <div class="row header"> <!-- each row can contain up to 12 columns. no matter what, all col must add up to 12 -->
       <div class="col-sm-1">
         <!-- Dropdown Button -->
@@ -79,7 +91,7 @@ include 'config.php';
         </div>
       </div>
       <!-- Faculty & Student Research Header -->
-      <div class="col-sm-6"><h1>Faculty & Student<br> Research</h1></div>
+      <div class="col-sm-6"><h1>Faculty & Student Research</h1></div>
       <div class="col-sm-3"></div>
       <!-- Login Button -->
       <div class="col-sm-1">
