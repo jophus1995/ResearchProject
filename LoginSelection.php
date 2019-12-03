@@ -24,9 +24,9 @@ include 'config.php';
   <!-- Imports Google Font Open-Sans -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
-  <link rel="stylesheet" type="text/css" href="../css/Login.css">
+  <link rel="stylesheet" type="text/css" href="../css/LoginSelection.css">
   <!-- Website Page Title -->
-  <title> Login Selection</title>
+  <title> Login Selection </title>
 </head>
 
 <body>
@@ -40,6 +40,8 @@ include 'config.php';
 	<p><a class="btn btn-primary" href="http://35.245.253.27/Login.php">Continue as a Student</a></p>
 	<!-- Button to redirect a user to log in as a faculty member -->
 	<p><a class="btn btn-primary" href="http://35.245.253.27/FacultyLogin.php">Continue as a Faculty</a></p>
+        <!-- Button to redirect a user to log in as a faculty member -->
+        <p><a class="btn btn-primary" href="http://35.245.253.27/AlumniLogin.php">Continue as a Alumni</a></p>
 	<!-- Link to redirect user back to Home page -->
 	<p><a href="http://35.245.253.27/Home.php">Return to Home Page</a></p>
     </div>
