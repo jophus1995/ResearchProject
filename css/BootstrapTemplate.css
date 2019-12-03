@@ -23,16 +23,39 @@ body {
   -o-background-size: cover;
 }
 
+.topnav {
+        overflow: hidden;
+        background-color: #4D6B8B;
+        z-index: 1000;
+        top: 0;
+        position: fixed;
+        width: 100%;
+}
+.topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 8px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        width: 16.6666666666%;
+}
+.topnav a:hover {
+        background-color: #686663;
+        color: white;
+}
+
 /* header style */
 
 .header {
   background-color: #0D3559;
   color:white;
+  margin-top:4.5%;
 }
 
 .header h1 {
   padding-top:1%;
-  paddingp-bottom:1%;
+  padding-bottom:1%;
 }
 
 /* dropdown menu button */
@@ -70,14 +93,14 @@ body {
   background-color: #872434;
   padding-right:20%;
   padding-left:20%;
-  margin-top:25%;
+  margin-top:15%;
 }
 /* main container / jumbotron */
 
 .main {
   margin-top:5%;
   margin-left:17%;
-  height: 80%;;
+  height: 125%;
   width: 70%;
   background-color:#0D3559;
   opacity:0.9;
