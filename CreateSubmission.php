@@ -1,11 +1,12 @@
 <?php
 include 'config.php';
 	//If statement to determine if connection to MySQL database was successful/unsucessful
-	if(!$con){
+	/*if(!$con){
         	echo "Connection to MySQL database failed";
 	}else{
         	echo "Connection to MySQL database successful";
-	}
+	}*/
+
 	//Start a new session
 	session_start();
 	//If there is not a session ID set
@@ -32,7 +33,7 @@ include 'config.php';
   <!-- Imports Google Font Open-Sans -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
-  <link rel="stylesheet" type="text/css" href="../css/BootstrapTemplate.css">
+  <link rel="stylesheet" type="text/css" href="../css/CreateSubmission.css">
   <!-- Website Page Title -->
   <title> Create New Submission </title>
 </head>
@@ -41,6 +42,18 @@ include 'config.php';
 
 <!-- Container for header -->
 <div class="container-fluid"> <!-- container-fluid is a full width container. it scales to the screen width -->
+    <div class="row">
+    <div class="topnav">
+        <div class="span-12">
+                        <a href="#home"><img src="inc/home.png" width="15" height = "15"><br>Home</a>
+                        <a href="#t3"><img src="inc/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
+                        <a href="#intern"><img src="inc/briefcase.png" width="15" height = "15"><br>Internships</a>
+                        <a href="#ctf"><img src="inc/flag.png" width="15" height = "15"><br>Capture the Flag</a>
+                        <a href="#alumni"><img src="inc/persons.png" width="15" height = "15"><br>Alumni</a>
+                        <a href="http://35.245.253.27/Home.php"><img src="inc/books.png" width="15" height = "15"><br>Research</a>
+    </div>
+    </div>
+    </div>
     <div class="row header"> <!-- each row can contain up to 12 columns. no matter what, all col must add up to 12 -->
       <div class="col-sm-1">
         <!-- Dropdown Button -->
@@ -68,7 +81,7 @@ include 'config.php';
         </div>
       </div>
       <!-- Faculty & Student Research Header -->
-      <div class="col-sm-6"><h1>Faculty & Student<br> Research</h1></div>
+      <div class="col-sm-6"><h1>Faculty & Student Research</h1></div>
       <div class="col-sm-3"></div>
       <!-- Login Button -->
       <div class="col-sm-1">
@@ -89,23 +102,29 @@ include 'config.php';
 
 <div>
 <?php
+//	if(isset($_POST(['create'])){
 	$currdate = date("Y/m/d");
-	if(isset($_POST['create'])){
-		$title = $_POST['title'];
-		$projdesc = $_POST['projdesc'];
-		$facultysponsor = $_POST['facultysponsor'];
-		$tags = $_POST['tags'];
+	$title = $_POST['title'];
+	$projdesc = $_POST['projdesc'];
+	$facultysponsor = $_POST['facultysponsor'];
+	$userID = $_SESSION['userID'];
+	$tags1 = $_POST['tags1'];
+	$tags2 = $_POST['tags2'];
+	$tags3 = $_POST['tags3'];
+		
 
-		$tagsArray = explode(',',$tags);
 
-		//Insert statement for creating an account
-		$insertStatement = "INSERT INTO StudentSubmissions (author,facultySponsor,description,date,title) VALUES (\"" . "1" . "\",\"" . $facultysponsor . "\",\"" . $projdesc . "\",\"" . $currdate . "\",\"" . $title . "\")";
+		//Insert statement for submission
+		$insertStatement = "INSERT INTO StudentSubmission (author,facultySponsor,description,date,title) VALUES (\"" . $userID . "\",\"" . $facultysponsor . "\",\"" . $projdesc . "\",\"" . $currdate . "\",\"" . $title . "\")";
+		//$sql = "INSERT INTO StudentSubmission (author, facultySponsor, description, date, title) VALUES (9, 'Dr. Jennifer Polack', 'mmm', 2019/12/02, 'lel')";
+
 		//MySQL query insert statement to studentfacultyDB databas
+		
 		echo $insertStatement;
 		mysqli_query($con,$insertStatement);
+		echo 'AfterQuery';
+//	}
 
-
-	}
 ?>
 </div>
 
@@ -113,13 +132,13 @@ include 'config.php';
   <div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotr
 on width -->
     <div class="row">
-      <div class="col-sm-3"><h1>Create/Edit Submission</h1></div>
+      <div class="col-sm-6"><h1>Create/Edit Submission</h1></div>
       <div class="col-sm-2"></div>
     </div>
 
 
 <div>
-    <form action="CreateSubmission.php" method="post">
+    <form action="SubmissionSuccessful.php" method="POST">
 	<div class="container">
 	<br></br>
 	    <label for="title"><b>Title:</b></label>
@@ -137,13 +156,69 @@ on width -->
 		  <option value="Dr. Jennifer Polack">
 		  <option value="Dr. Karen Anewalt">
 		  <option value="Dr. Veena Ravishankar">
+		  <option value="Professor Gusty Cooper">
+		  <option value="Dr. Stephen Davies">
+		  <option value="Dr. Andrew Marshall">
+		  <option value="Dr. Ron Zacharski">
+		  <option value="Dr. Jessica Zeitz">
 		</datalist>
 
+		<br></br>
+	    <label for="tags1"><b>Tag 1:</b></label>
+	    <input list="tagList1" name="tags1" required>
+		<datalist id = 'tagList1'>
+		<option value="Mobile">
+		<option value="Robotics">
+		<option value="Game Programming">
+		<option value="Graphic Design">
+		<option value="AI">
+		<option value="Data Science">
+		<option value="Databases">
+		<option value="Cyber Security">
+		<option value="Operating Systems">
+		<option value="Object Oriented">
+		<option value="Programming">
+		<option value="Human Computer Interaction">
+		</datalist>
 
 		<br></br>
-	    <label for="tags"><b>Tags (Enter 1 - 3 separate by comma):</b></label>
-	    <input type="text" name="tags" required>
+		<label for="tags2"><b>Tag 2:</b></label>
+		<input list="tagList2" name="tags2" required>
+		    <datalist id = 'tagList2'>
+		    <option value="N/A">
+		    <option value="Mobile">
+		    <option value="Robotics">
+		    <option value="Game Programming">
+		    <option value="Graphic Design">
+		    <option value="AI">
+		    <option value="Data Science">
+		    <option value="Databases">
+		    <option value="Cyber Security">
+		    <option value="Operating Systems">
+		    <option value="Object Oriented">
+		    <option value="Programming">
+		    <option value="Human Computer Interaction">
+			</datalist>
 		<br></br>
+
+	    <label for="tags3"><b>Tag 3:</b></label>
+	    <input list="tagList3" name="tags3" required>
+		<datalist id = 'tagList3'>
+		<option value="N/A">
+		<option value="Mobile">
+		<option value="Robotics">
+		<option value="Game Programming">
+		<option value="Graphic Design">
+		<option value="AI">
+		<option value="Data Science">
+		<option value="Databases">
+		<option value="Cyber Security">
+		<option value="Operating Systems">
+		<option value="Object Oriented">
+		<option value="Programming">
+		<option value="Human Computer Interaction">
+		</datalist>
+		<br></br>		
 
 	    <input type="submit" name="create" value="Submit">
 	</div>

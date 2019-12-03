@@ -8,15 +8,25 @@ include 'config.php';
         echo "Connection to MySQL database successful";
 }*/
 
+//if(isset($_POST['create'])){
 $firstname = $_POST['fname'];
 $lastname = $_POST['lname'];
 $email = $_POST['email'];
-$password = $_POST['pwd'];
+$unhashed = $_POST['pwd'];
+//$password = $_POST['pwd'];
+$password = crypt($unhashed, "SECURE");
 $dateofbirth = $_POST['DOB'];
 //Insert statement for creating an account
 $insertStatement = "INSERT INTO Users (email,password,fname,lname,accessLevel,dateOfBirth) VALUES (\"" . $email . "\",\"" . $password . "\",\"" . $firstname . "\",\"" . $lastname . "\",\"" . "0" . "\",\"" . $dateofbirth . "\")";
+//echo $insertStatement;
 //MySQL insert statement query
-mysqli_query($con,$insertStatement);
+if (mysqli_query($con,$insertStatement)) {
+	header("Location: SuccessfulAccount.php");
+}
+
+
+
+//}
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +46,7 @@ mysqli_query($con,$insertStatement);
   <!-- Imports Google Font Open-Sans -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- General Stylesheet Link -->
-  <link rel="stylesheet" type="text/css" href="../css/BootstrapTemplate.css">
+  <link rel="stylesheet" type="text/css" href="../css/CreateAccount.css">
   <!-- Website Page Title-->  
   <title> Create New Account </title>
 </head>
@@ -45,6 +55,18 @@ mysqli_query($con,$insertStatement);
 
 <!-- Container for header -->
 <div class="container-fluid"> <!-- container-fluid is a full width container. it scales to the screen width -->
+    <div class="row">
+    <div class="topnav">
+        <div class="span-12">
+                        <a href="#home"><img src="inc/home.png" width="15" height = "15"><br>Home</a>
+                        <a href="#t3"><img src="inc/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
+                        <a href="#intern"><img src="inc/briefcase.png" width="15" height = "15"><br>Internships</a>
+                        <a href="#ctf"><img src="inc/flag.png" width="15" height = "15"><br>Capture the Flag</a>
+                        <a href="#alumni"><img src="inc/persons.png" width="15" height = "15"><br>Alumni</a>
+                        <a href="http://35.245.253.27/Home.php"><img src="inc/books.png" width="15" height = "15"><br>Research</a>
+    </div>
+    </div>
+    </div>
     <div class="row header"> <!-- each row can contain up to 12 columns. no matter what, all col must add up to 12 -->
       <div class="col-sm-1">
 	<!-- Dropdown Button -->
@@ -72,7 +94,7 @@ mysqli_query($con,$insertStatement);
 	</div>
       </div>
       <!-- Faculty & Student Research Header -->
-      <div class="col-sm-6"><h1>Faculty & Student<br> Research</h1></div>
+      <div class="col-sm-6"><h1>Faculty & Student Research</h1></div>
       <div class="col-sm-3"></div>
       <!-- Login Button -->
       <div class="col-sm-1">
@@ -86,7 +108,7 @@ mysqli_query($con,$insertStatement);
   <div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotron width -->
     <div class="row">
       <!-- Create Account Header -->
-      <div class="col-sm-5"><h1>Create Account</h1></div>
+      <div class="col-sm-11"><center><h1>Create an Account</h1></center></div>
       <div class="col-sm-2"></div>
       <div class="col-sm-5"></div>
     </div>
@@ -95,41 +117,41 @@ mysqli_query($con,$insertStatement);
       <form action="CreateAccount.php" method="POST">
 	<div class="form-group">
           <!-- First Name Label -->
-	  <label for="fname">First Name:</label>
-	  <input type="text" placeholder="First Name" class="form-control" name="fname">
+	  <div class="col-sm-11"><label for="fname"><h4>First Name</h4></label></div>
+	  <div class="col-sm-11"><input type="text" placeholder="John" class="form-control" name="fname"></div>
 	</div>
 	<div class="form-group">
 	  <!-- Last Name Label -->
-	  <label for="lname">Last Name</label>
-	  <input type="text" placeholder="Last Name" class="form-control" name="lname">
+	  <div class="col-sm-11"><label for="lname"><h4>Last Name</h4></label></div>
+	  <div class="col-sm-11"><input type="text" placeholder="Doe" class="form-control" name="lname"></div>
 	</div>
 	<div class="form-group">
 	  <!-- Email Label -->
-	  <label for="email">Email Address:</label>
-	  <input type="email" placeholder="Email Address" class="form-control" name="email">
+	  <div class="col-sm-11"><label for="email"><h4>Email Address</h4></label></div>
+	  <div class="col-sm-11"><input type="email" placeholder="johndoe@mail.com" class="form-control" name="email"></div>
 	</div>
 	<div class="form-group">
           <!-- Email Confirmation Label -->
-	  <label for="emailCon">Confirm Email Address:</label>
-	  <input type="emailCon" placeholder="Confirm Email Address" class="form-control" name="emailCon">
+	  <div class="col-sm-11"><label for="emailCon"><h4>Confirm Email Address</h4></label></div>
+	  <div class="col-sm-11"><input type="emailCon" placeholder="johndoe@mail.com" class="form-control" name="emailCon"></div>
 	</div>
 	<div class="form-group">
 	  <!-- Password Label -->
-	  <label for="pwd">Password:</label>
-	  <input type="password" placeholder="Password" class="form-control" name="pwd">
+	  <div class="col-sm-11"><label for="pwd"><h4>Password</h4></label></div>
+	  <div class="col-sm-11"><input type="password" placeholder="********" class="form-control" name="pwd"></div>
 	</div>
 	<div class="form-group">
 	  <!-- Password Confirmation Label -->
-	  <label for="passCon">Confirm Password:</label>
-	  <input type="password" placeholder="Confirm Password" class="form-control" name="passCon">
+	  <div class="col-sm-11"><label for="passCon"><h4>Confirm Password</h4></label></div>
+	  <div class="col-sm-11"><input type="password" placeholder="********" class="form-control" name="passCon"></div>
 	</div>
 	<div class="form-group">
 	  <!-- Date of Birth Label -->
-	  <label for="DOB">Date of Birth</label>
-	  <input type="date" placeholder="Date of Birth" class="form-control" name="DOB">
+	  <div class="col-sm-11"><label for="DOB"><h4>Date of Birth</h4></label></div>
+	  <div class="col-sm-11"><input type="date" class="form-control" name="DOB"></div>
 	</div>
 	<!-- Submit Button -->
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<div class="col-sm-11"><button type="submit"  class="btn btn-primary">Submit</button></div>
       </form>
     </div>
     </div>
